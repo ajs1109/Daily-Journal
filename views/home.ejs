@@ -1,0 +1,18 @@
+<%- include('partials/header.ejs')-%>
+
+<h1>Home</h1>
+<p><%=homeContent%></p>
+
+<%posts.forEach(function(element){ %>
+    <h1><a href="/posts/<%=lodash.kebabCase(element.title)%>"><%=element.title%></a></h1>
+    <p><%=lodash.truncate(element.body, {"length": 100, "omission": ' ...'})%> 
+    <% if(element.body.length>100){%>
+    <a href="/posts/<%=lodash.kebabCase(element.title)%>">Read More</a>
+    <%}%>
+    </p>
+    <% console.log(element.title); %>
+ <%});%>
+
+
+
+<%- include('partials/footer.ejs') -%>
